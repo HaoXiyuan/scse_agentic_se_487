@@ -1,0 +1,56 @@
+**Software Requirements Specification**  
+**System:** Robot Navigation Component  
+
+---
+
+### **Functional Requirements**  
+
+1. **Sensor Input Handling**  
+   - The navigation system must process and validate real-time sensor inputs indicating whether the path in front, to the left, and to the right is blocked.  
+   - Inputs must be continuously monitored and updated to reflect dynamic environmental changes.  
+
+2. **Goal Direction Determination**  
+   - The system must determine the direction of the goal relative to the robot's current position (ahead, left, or right).  
+   - This information must be provided to the navigation logic for decision-making.  
+
+3. **Goal Prioritization**  
+   - The navigation logic must prioritize movement toward the goal **only if** the corresponding direction is unblocked.  
+   - If the goal is ahead and the path is clear, the robot must move forward.  
+   - If the goal is to the left or right and the respective path is unblocked, the robot must move in that direction.  
+
+4. **Blockage Avoidance**  
+   - The system must enforce that the robot **never** moves into a blocked direction.  
+   - All movement commands must be validated against the current blockage status of the respective direction.  
+
+5. **Stop Condition**  
+   - If no safe movement options are available (i.e., all directions are blocked), the robot must stop and remain stationary.  
+   - The system must detect this condition and halt all movement.  
+
+6. **Simulated Environment Compatibility**  
+   - The navigation component must be designed to operate within multiple simulated environments.  
+   - It must support different sensor input formats, environment configurations, and testing scenarios.  
+
+---
+
+### **Non-Functional Requirements**  
+
+1. **Real-Time Responsiveness**  
+   - The system must process sensor inputs and make movement decisions in real-time to ensure timely responses to environmental changes.  
+
+2. **Robustness**  
+   - The system must handle edge cases, such as all directions being blocked, ensuring the robot stops correctly without unintended movement.  
+
+3. **Modularity**  
+   - The navigation logic must be modular to allow for easy integration with various simulated environments and future enhancements.  
+
+4. **Maintainability**  
+   - The code must be well-documented, structured, and written in a scalable manner to facilitate maintenance and updates.  
+
+---
+
+### **Additional Notes**  
+- **Goal Direction Interpretation:** The robot¡¯s orientation and the goal¡¯s direction (ahead, left, or right) are relative to its current facing direction. The navigation logic must account for this relative positioning.  
+- **Movement Logic:** If the goal is in a direction that is blocked, the robot must select the next best safe direction (e.g., prioritize moving toward the goal, then other directions). The selection criteria for non-goal directions are implementation-specific but must ensure safety.  
+
+---  
+This specification ensures the robot navigates safely, prioritizes its goal, and operates across diverse simulated environments.

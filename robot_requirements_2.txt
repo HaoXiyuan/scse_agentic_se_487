@@ -1,0 +1,53 @@
+### Software Requirements for Robot Navigation System  
+
+#### **Functional Requirements**  
+1. **Input Handling**  
+   - The navigation system must receive and process real-time input data indicating whether the path in front, to the left, and to the right is blocked.  
+   - The system must receive and process input data indicating the direction of the goal relative to the robot (ahead, left, or right).  
+
+2. **Goal Prioritization**  
+   - The navigation system must prioritize moving toward the goal whenever the direction toward the goal is unblocked.  
+   - If the goal is ahead and the path in front is unblocked, the robot must move forward.  
+   - If the goal is to the left or right and the corresponding path is unblocked, the robot must move in that direction.  
+
+3. **Safety Constraints**  
+   - The navigation system must prevent the robot from moving into any direction that is blocked (front, left, or right).  
+   - If the goal is in a blocked direction, the system must evaluate alternative directions.  
+
+4. **Stop Condition**  
+   - If no unblocked directions are available (i.e., all paths are blocked), the navigation system must command the robot to stop.  
+
+5. **Continuous Monitoring**  
+   - The system must continuously monitor path blockage and goal direction inputs to dynamically update movement decisions.  
+   - Movement decisions must be recalculated in real-time as input conditions change.  
+
+---
+
+#### **Non-Functional Requirements**  
+1. **Compatibility with Simulated Environments**  
+   - The navigation component must be compatible with multiple simulated environments for testing purposes.  
+   - It must function reliably across diverse scenarios, including varying blockage configurations and goal positions.  
+
+2. **Robustness**  
+   - The system must handle edge cases, such as all paths being blocked or the goal direction being undefined.  
+   - It must avoid unintended behavior (e.g., infinite loops) when no safe movement is possible.  
+
+3. **Performance**  
+   - The navigation logic must execute within acceptable time constraints to ensure real-time responsiveness.  
+
+---
+
+#### **Test Requirements**  
+1. **Simulation Testing**  
+   - The navigation component must be validated in multiple simulated environments to ensure it adheres to the specified behavior under all valid input conditions.  
+   - Test cases must include scenarios where:  
+     - The goal is ahead, left, or right.  
+     - Paths are blocked in one or more directions.  
+     - No safe movement is possible (e.g., all paths blocked).  
+
+2. **Edge Case Coverage**  
+   - Test cases must verify the system¡¯s behavior when the goal direction is undefined or when inputs are inconsistent.  
+
+---
+
+This structured approach ensures clarity, traceability, and alignment with the brief¡¯s objectives while addressing both functional and non-functional aspects of the navigation system.

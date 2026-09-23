@@ -1,0 +1,49 @@
+**Software Requirements Specification for Robot Navigation System**  
+
+---
+
+### **1. Functional Requirements**  
+**1.1 Input Processing**  
+- The navigation system must receive and process real-time sensor data indicating whether the path in **front**, **left**, and **right** is blocked.  
+- The system must receive and process information about the **goal's direction** relative to the robot (e.g., "ahead", "left", or "right").  
+
+**1.2 Navigation Logic**  
+- **Priority Rule**: The system must **always prioritize movement toward the goal** if the corresponding direction is unblocked.  
+- **Safety Check**: The system must **never generate movement commands** for any direction that is blocked.  
+- **Fallback Rule**: If the goal direction is blocked, the system must evaluate other available directions (front, left, right) in a defined priority order (e.g., front > left > right, or left > right > front, depending on design).  
+- **Stop Condition**: If **no unblocked directions** are available, the system must **stop the robot** and halt all movement.  
+
+**1.3 Output Generation**  
+- The system must generate a **movement command** (forward, left, right, or stop) based on the current state of blocked paths and goal direction.  
+
+---
+
+### **2. Non-Functional Requirements**  
+**2.1 Robustness**  
+- The navigation component must **operate reliably** in diverse simulated environments with varying layouts, obstacle configurations, and dynamic changes to blocked paths.  
+
+**2.2 Compatibility**  
+- The system must be **compatible with multiple simulated environments** (e.g., different map geometries, lighting conditions, or sensor noise levels).  
+
+**2.3 Real-Time Performance**  
+- The system must process sensor inputs and generate movement commands **within a defined time threshold** (e.g., ¡Ü 100 ms) to ensure real-time responsiveness.  
+
+**2.4 Error Handling**  
+- The system must **handle invalid or missing input data** (e.g., unknown goal direction) by defaulting to a safe stop or logging an error.  
+
+---
+
+### **3. Assumptions and Constraints**  
+- The robot¡¯s orientation and goal direction are **predefined** by external systems (e.g., localization or mapping modules).  
+- Blocked path information is **static** during navigation unless explicitly updated by sensor inputs.  
+- The system does **not** account for dynamic obstacles (e.g., moving objects) unless specified in future enhancements.  
+
+---
+
+### **4. Glossary**  
+- **Blocked Path**: A direction where movement is physically obstructed (e.g., walls, objects).  
+- **Goal Direction**: The relative position of the robot¡¯s target destination (ahead, left, or right).  
+
+---
+
+This specification ensures the navigation logic adheres to safety constraints, prioritizes goal-directed movement, and is adaptable to simulated environments.

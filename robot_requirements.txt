@@ -1,0 +1,64 @@
+**Software Requirements Specification for Robot Navigation**  
+
+---
+
+### **1. Functional Requirements**  
+**1.1 Sensor Input Handling**  
+- The navigation system must receive and process real-time sensor data indicating whether the path **in front**, **to the left**, and **to the right** is blocked.  
+- The navigation system must receive and process data indicating the **direction of the goal** (e.g., "ahead", "left", or "right").  
+
+**1.2 Movement Prioritization**  
+- The navigation system must **prioritize moving toward the goal** if the corresponding direction is **unblocked**.  
+- If the goal direction is **blocked**, the system must evaluate other available directions (front, left, right) in a predefined priority order (e.g., front > left > right) to determine the next safe movement.  
+
+**1.3 Safety Constraints**  
+- The navigation system must **never attempt to move into a blocked direction**.  
+- If **no unblocked directions** are available (e.g., all paths are blocked), the system must **stop the robot** and halt further movement.  
+
+**1.4 Decision Logic**  
+- The navigation system must determine the **next movement direction** based on the current sensor inputs and the goal¡¯s direction.  
+- The system must **re-evaluate movement decisions dynamically** as sensor inputs change.  
+
+---
+
+### **2. Non-Functional Requirements**  
+**2.1 Reliability**  
+- The navigation system must operate **reliably** in all simulated environments, ensuring consistent behavior under varying conditions.  
+
+**2.2 Real-Time Performance**  
+- The system must process sensor inputs and compute movement decisions **within a defined time threshold** to avoid delays.  
+
+**2.3 Robustness**  
+- The system must handle **invalid or missing sensor data** gracefully (e.g., by defaulting to a safe state or logging errors).  
+
+**2.4 Modularity**  
+- The navigation logic must be **modular** to allow for future enhancements (e.g., additional sensors, dynamic environment adjustments).  
+
+---
+
+### **3. Environmental and Testing Requirements**  
+**3.1 Simulated Environments**  
+- The navigation component must be tested in **multiple simulated environments** to validate its adaptability to different scenarios (e.g., varying obstacle placements, lighting conditions).  
+
+**3.2 Input Compatibility**  
+- The system must support **standardized sensor input formats** to ensure compatibility with diverse simulation tools.  
+
+---
+
+### **4. Error Handling**  
+**4.1 Blockage Detection**  
+- If a sensor input indicates a **blocked path**, the system must **exclude that direction** from consideration.  
+
+**4.2 Goal Direction Ambiguity**  
+- If the goal direction is **undefined** (e.g., not ahead, left, or right), the system must **halt movement** and await updated goal information.  
+
+---
+
+### **5. Assumptions and Constraints**  
+- The robot¡¯s movement options are limited to **front**, **left**, and **right**.  
+- The goal direction is always one of the three cardinal directions (ahead, left, right).  
+- The system assumes **no external forces** (e.g., external pushes, terrain irregularities) affecting movement.  
+
+--- 
+
+This specification ensures the navigation logic adheres to safety, prioritization, and adaptability requirements while enabling testing across diverse environments.
