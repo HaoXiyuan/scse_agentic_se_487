@@ -12,7 +12,7 @@ def main():
 
     code = run_developer(plan)
 
-    output_path = Path("navigation_logic.py")
+    output_path = Path("artifacts") / "navigation_logic.py"
     output_path.write_text(code)
 
     print(f"Navigation logic saved to {output_path}")

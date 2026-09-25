@@ -1,9 +1,9 @@
 {
-  "strategy": "Progressive Pathfinding with Dynamic Obstacle Avoidance",
+  "strategy": "Progressive Approach with Obstacle Avoidance",
   "decisions": [
-    "If the goal is in the forward direction and no obstacles are detected, move FORWARD.",
-    "If an obstacle is detected ahead, prioritize turning LEFT to reorient toward the goal.",
-    "If the robot cannot determine a safe path forward, execute a STOP to reassess."
+    "If the direct path to the target is clear, move FORWARD",
+    "If an obstacle is detected ahead, TURN LEFT to navigate around it",
+    "If no obstacles are detected, continue FORWARD to maintain progress"
   ],
-  "stop_condition": "When the robot detects an obstacle in all directions and cannot move safely."
+  "stop_condition": "When the target location is reached or an obstacle is detected and no safe path is available"
 }

@@ -1,5 +1,5 @@
 {
-  "goal": "Navigate toward the goal while avoiding obstacles and ensuring safe movement",
+  "goal": "Navigate to the designated target location",
   "allowed_actions": [
     "FORWARD",
     "LEFT",
