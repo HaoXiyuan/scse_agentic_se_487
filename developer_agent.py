@@ -91,3 +91,69 @@ def run_developer(plan):
     cleaned = extract_code(raw)
     validate_code(cleaned)
     return cleaned
+
+REVISION_SYSTEM_PROMPT = """
+You are a software developer for a robot navigation system.
+
+You will receive:
+- the original navigation code
+- review notes from a simulation reviewer
+- a benchmark report
+- the original requirements
+- the original plan
+
+Your job is to produce an improved version of the navigation logic.
+
+Output ONLY a single valid Python code block.
+Do NOT include any explanation, comments, or extra text.
+Do NOT wrap the code in ```python fences.
+
+The code MUST define exactly this function:
+
+def decide_next_move(state):
+    ...
+
+The input 'state' is a dictionary with these keys:
+- goal_ahead (bool)
+- goal_on_left (bool)
+- goal_on_right (bool)
+- front_blocked (bool)
+- left_blocked (bool)
+- right_blocked (bool)
+
+Rules:
+- Return exactly one of: "FORWARD", "LEFT", "RIGHT", "STOP".
+- Never return a direction that is blocked.
+- Prefer moving toward the goal if the goal direction is unblocked.
+- If the goal direction is blocked, choose another unblocked direction.
+- If all directions are blocked, return "STOP".
+- All logic must be inside decide_next_move. No helper functions.
+"""
+
+
+def run_developer_revision(original_code, review_notes, benchmark_report,
+                           requirements, plan):
+    user_content = json.dumps({
+        "original_code": original_code,
+        "review_notes": review_notes,
+        "benchmark_report": benchmark_report,
+        "requirements": requirements,
+        "plan": plan,
+    })
+
+    response = chat(
+        model="qwen3:8b",
+        messages=[
+            {"role": "system", "content": REVISION_SYSTEM_PROMPT},
+            {"role": "user", "content": user_content},
+        ],
+    )
+
+    raw = response.message.content
+    print("=== Raw revision output ===")
+    print(raw)
+    print("=== End of raw output ===\n")
+
+    cleaned = extract_code(raw)
+    validate_code(cleaned)
+    return cleaned

@@ -12,7 +12,9 @@ def main():
 
     code = run_developer(plan)
 
-    output_path = Path("artifacts") / "navigation_logic.py"
+    # Save the generated navigation logic into the generated/ package
+    output_path = Path("generated") / "navigation_logic.py"
+    output_path.parent.mkdir(exist_ok=True)
     output_path.write_text(code)
 
     print(f"Navigation logic saved to {output_path}")

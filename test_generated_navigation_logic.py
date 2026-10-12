@@ -1,4 +1,4 @@
-## A typical test case: 
+## A typical test case:
 """ {
     "goal_ahead": True,
     "goal_on_left": False,
@@ -10,7 +10,7 @@
 "FORWARD" """
 ## Use the above test case to create more test cases for all the possible states
 
-from artifacts.navigation_logic import decide_next_move
+from generated.navigation_logic import decide_next_move
 
 
 TEST_CASES = [

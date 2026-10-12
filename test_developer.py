@@ -13,11 +13,9 @@ def main():
     # 2. Run the developer agent
     code = run_developer(plan)
 
-    # 3. Save to artifacts/navigation_logic.py
-    artifacts_dir = Path("artifacts")
-    artifacts_dir.mkdir(exist_ok=True)
-
-    output_path = artifacts_dir / "navigation_logic.py"
+    # 3. Save to generated/navigation_logic.py
+    output_path = Path("generated") / "navigation_logic.py"
+    output_path.parent.mkdir(exist_ok=True)
     output_path.write_text(code)
 
     # 4. Display the result
