@@ -1,9 +1,9 @@
 {
-  "strategy": "Progressive Approach with Dynamic Obstacle Avoidance",
+  "strategy": "Incremental movement with dynamic obstacle avoidance using left-preference turning",
   "decisions": [
-    "If the forward path is unobstructed, move FORWARD.",
-    "When an obstacle is detected ahead, prioritize turning LEFT to assess alternate pathways.",
-    "If the robot reaches the designated goal or is unable to proceed further, execute STOP."
+    "Proceed FORWARD if the path is clear and goal is not reached",
+    "Turn LEFT to avoid obstacles when forward path is blocked",
+    "Stop if both LEFT and RIGHT paths are obstructed or goal is achieved"
   ],
-  "stop_condition": "The robot must stop when it has reached the designated goal and confirmed no obstacles are within a safe proximity, or when it is in a safe stop state as defined by system protocols."
+  "stop_condition": "Stop when all movement directions (FORWARD, LEFT, RIGHT) are blocked or the goal is reached"
 }

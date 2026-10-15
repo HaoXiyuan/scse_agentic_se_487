@@ -1,83 +1,51 @@
 {
   "total_worlds": 4,
-  "goals_reached": 4,
-  "success_rate": 1.0,
-  "efficient_worlds": 4,
+  "goals_reached": 0,
+  "success_rate": 0.0,
+  "efficient_worlds": 0,
   "inefficient_success_worlds": 0,
-  "failed_worlds": 0,
-  "efficiency_rate": 1.0,
-  "average_steps_taken": 169.5,
+  "failed_worlds": 4,
+  "efficiency_rate": 0.0,
+  "average_steps_taken": 0.0,
   "results": [
     {
       "world": "irsim_worlds/world_easy.yaml",
       "report": {
-        "reached_goal": true,
-        "collision_or_done": false,
-        "steps_taken": 150,
-        "max_steps_allowed": 300,
-        "efficient_step_limit": 200,
-        "efficiency_status": "efficient",
-        "efficiency_passed": true,
-        "final_pose": [
-          7.815877736477747,
-          1.35416409613743,
-          -0.7200000000000006
-        ],
-        "history_length": 150
+        "reached_goal": false,
+        "collision_or_done": true,
+        "steps_taken": 0,
+        "efficiency_status": "failed",
+        "efficiency_passed": false
       }
     },
     {
       "world": "irsim_worlds/world_medium.yaml",
       "report": {
-        "reached_goal": true,
-        "collision_or_done": false,
-        "steps_taken": 148,
-        "max_steps_allowed": 300,
-        "efficient_step_limit": 200,
-        "efficiency_status": "efficient",
-        "efficiency_passed": true,
-        "final_pose": [
-          7.712490771958734,
-          4.253312110735628,
-          -0.40000000000000036
-        ],
-        "history_length": 148
+        "reached_goal": false,
+        "collision_or_done": true,
+        "steps_taken": 0,
+        "efficiency_status": "failed",
+        "efficiency_passed": false
       }
     },
     {
       "world": "irsim_worlds/world_hard.yaml",
       "report": {
-        "reached_goal": true,
-        "collision_or_done": false,
-        "steps_taken": 187,
-        "max_steps_allowed": 300,
-        "efficient_step_limit": 200,
-        "efficiency_status": "efficient",
-        "efficiency_passed": true,
-        "final_pose": [
-          7.67814415627635,
-          8.127051090332003,
-          0.0
-        ],
-        "history_length": 187
+        "reached_goal": false,
+        "collision_or_done": true,
+        "steps_taken": 0,
+        "efficiency_status": "failed",
+        "efficiency_passed": false
       }
     },
     {
       "world": "irsim_worlds/world_custom.yaml",
       "report": {
-        "reached_goal": true,
-        "collision_or_done": false,
-        "steps_taken": 193,
-        "max_steps_allowed": 300,
-        "efficient_step_limit": 200,
-        "efficiency_status": "efficient",
-        "efficiency_passed": true,
-        "final_pose": [
-          7.963211951972691,
-          4.376850671335502,
-          -1.200000000000001
-        ],
-        "history_length": 193
+        "reached_goal": false,
+        "collision_or_done": true,
+        "steps_taken": 0,
+        "efficiency_status": "failed",
+        "efficiency_passed": false
       }
     }
   ]

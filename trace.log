@@ -7,5 +7,8 @@ Simulation Runner created simulation_report.json
 Reviewer Agent created simulation_review.json
 IR-SIM Benchmark created irsim_benchmark_report.json
 Benchmark Reviewer created benchmark_review.json
-No revision required.
+Revision required. Running developer revision...
+Developer revision created new navigation_logic.py
+Re-ran simulation after revision
+Re-ran IR-SIM benchmark after revision
 Pipeline finished.
